@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <title>Hello World!</title>
+    <script src="document.js" root="" id="DOC"></script>
+</head>
+<body>
+
+<!--content-panel
+
+## Hello World!
+
+[ctrls:block`position:absolute; left:0; bottom:0; width:100%; padding:20px; background-color:#f8f8f8; border-top: #efefef solid 1px;]
+[close:bootstrap.Button`float:right]Close[/bootstrap.Button]
+[OK:bootstrap.Button`float:right; margin-right:10px;]OK[/bootstrap.Button]
+[/block]
+
+-->
+
+<script>
+
+    // Initialize on document loaded
+    $DOC.onload(function() {
+
+        var panel = $DOC.cbody['content-panel'],
+            ctrls = panel.ctrls;
+
+        // button events
+
+        ctrls.OK.listen('click', function() {
+            alert('OK!')
+        });
+
+        ctrls.close.listen('click', function() {
+            var gui = require('nw.gui');
+            gui.App.quit();
+        });
+    });
+
+</script>
+
+</body>
+</html>
