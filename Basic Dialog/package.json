@@ -1,0 +1,17 @@
+{
+  "name": "Basic Dialog",
+  "main": "Basic-Dialog.html",
+  "description": "'Basic Dialog'  template for creating a node-webkit application",
+  "version": "1.0.0",
+  "keywords": [ "Basic", "Dialog", "template", "node-webkit", "application" ],
+  "window": {
+    "title": "Basic Dialog template",
+    "toolbar": false,
+    "frame": true,
+    "width": 600,
+    "min_width": 400,
+    "height": 500,
+    "min_height": 480,
+    "position": "center"
+  }
+}

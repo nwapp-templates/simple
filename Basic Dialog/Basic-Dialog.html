@@ -9,36 +9,67 @@
 
 <!--content-panel
 
-## Basic Dialog form
-#### Subtitle
+<table style="display:table; position:fixed; left:0; top:0; width:100%; height:100%; border:none;">
+    <tr style="height:auto;"><td style="border:none; padding:0 20px 20px 20px;">
+        <h2 style="color:#6DA3BD;">Basic Dialog</h2>
+        <h4>Table layout</h4>
+    </td></tr>
+    <tr style="width:100%; height:100%;"><td style="border:none; padding:0 20px; display:block; max-width:800px;">
 
-[ctrls:block`position:absolute; left:0; bottom:0; width:100%; padding:20px; background-color:#f8f8f8; border-top: #efefef solid 1px;]
-[close:bootstrap.Button`float:right]Close[/bootstrap.Button]
-[OK:bootstrap.Button`float:right; margin-right:10px;]OK[/bootstrap.Button]
-[/block]
+        <label class="martop10 control-label">Input</label>
+        [input_control_name:bootstrap.ControlInput/]
+
+        <label class="martop10 control-label">Fixed width</label>
+        [fixedW_control_name:bootstrap.ControlInput`width:60px/]
+
+        <label class="martop10 control-label">Multiline textarea</label>
+        [textarea_control_name:textarea`form-control width:100%; height:100px; resize:none;/]
+
+
+        [checkbox_control_name:bootstrap.ControlCheckbox]Checkbox[/bootstrap.ControlCheckbox]
+
+    </td></tr>
+    <tr style="height:auto; background-color:#f8f8f8; border-top: #efefef solid 1px; text-align:right;"><td style="border:none;">
+        [OK:bootstrap.Button primary`margin:4px;]OK[/bootstrap.Button]
+        [close:bootstrap.Button`margin:4px;]Close[/bootstrap.Button]
+    </td></tr>
+</table>
 
 -->
 
 <script>
 
+    var gui = require('nw.gui'),
+        panel;
+
     // Initialize on document loaded
     $DOC.onload(function() {
 
-        var panel = $DOC.cbody['content-panel'],
-            ctrls = panel.ctrls;
+        panel = $DOC.cbody['content-panel'];
+
+
+        // input events
+
+        panel.input_control_name.listen('keyup', function() {
+
+        });
+
+        panel.input_control_name.listen('change', function() {
+
+        });
+
 
         // button events
 
         // OK button
 
-        ctrls.OK.listen('click', function() {
+        panel.OK.listen('click', function() {
             alert('OK!')
         });
 
         // Close button
 
-        ctrls.close.listen('click', function() {
-            var gui = require('nw.gui');
+        panel.close.listen('click', function() {
             gui.App.quit();
         });
     });
